@@ -17,7 +17,7 @@ try:
 except ImportError:
     flags = None
 
-class calendar(alarmpi_content):
+class google_calendar(alarmpi_content):
   def get_credentials():
     """Gets valid user credentials from storage.
 
