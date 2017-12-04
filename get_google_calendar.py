@@ -16,7 +16,7 @@ CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'alarmpi'
 
 class google_calendar(alarmpi_content):
-  def get_credentials():
+  def get_credentials(self):
     """Gets valid user credentials from storage.
 
     If nothing has been stored, or if the stored credentials are invalid,
