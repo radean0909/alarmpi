@@ -11,12 +11,6 @@ from apcontent import alarmpi_content
 
 import datetime
 
-try:
-    import argparse
-    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-except ImportError:
-    flags = None
-
 SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'alarmpi'
@@ -42,13 +36,7 @@ class google_calendar(alarmpi_content):
     print store
     credentials = store.get()
     if not credentials or credentials.invalid:
-        flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
-        flow.user_agent = APPLICATION_NAME
-        if flags:
-            credentials = tools.run_flow(flow, store, flags)
-        else: # Needed only for compatibility with Python 2.6
-            credentials = tools.run(flow, store, noauth_local_webserver=True)
-        print('Storing credentials to ' + credential_path)
+        print 'Run google_calendar.py to set up credentials'
     return credentials
 
   def build(self):
