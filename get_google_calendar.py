@@ -56,6 +56,7 @@ class google_calendar(alarmpi_content):
       credentials = get_credentials()
     except Exception:
       print('Error authenticating')
+      print(Exception)
 
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
