@@ -1,5 +1,5 @@
-
-from __future__ import print_function
+#!/bin/python
+# -*- coding: utf-8 -*-
 import httplib2
 import os
 
@@ -11,7 +11,6 @@ from apcontent import alarmpi_content
 
 import datetime
 from dateutil.relativedelta import relativedelta
-
 try:
     import argparse
     flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
@@ -53,7 +52,11 @@ class calendar(alarmpi_content):
     Creates a Google Calendar API service object and outputs a list of the next
     10 events on the user's calendar.
     """
-    credentials = get_credentials()
+    try:
+      credentials = get_credentials()
+    except Exception:
+      message = 'Error authenticating'
+
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
 
@@ -70,9 +73,11 @@ class calendar(alarmpi_content):
     events = eventsResult.get('items', [])
 
     if not events:
-        self.content = 'Lucky you, nothing scheduled today.'
+        message = 'Lucky you, nothing scheduled today.'
     else:
-        self.content = 'You have ' + len(events) + ' meetings scheduled today.'
+        message = 'You have ' + len(events) + ' meetings scheduled today.'
+    print(message)
+    self.content = message
     for event in events:
         start = event['start'].get('dateTime', event['start'].get('date'))
         print(start, event['summary'])
