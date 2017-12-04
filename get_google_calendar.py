@@ -10,7 +10,7 @@ from oauth2client.file import Storage
 from apcontent import alarmpi_content
 
 import datetime
-from dateutil.relativedelta import relativedelta
+
 try:
     import argparse
     flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
