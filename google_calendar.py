@@ -39,7 +39,7 @@ def get_credentials():
         os.makedirs(credential_dir)
     credential_path = os.path.join(credential_dir,
                                    'alarmpi-calendar-service.json')
-
+    print(flags)
     store = Storage(credential_path)
     credentials = store.get()
     if not credentials or credentials.invalid:
