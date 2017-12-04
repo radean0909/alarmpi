@@ -26,16 +26,12 @@ class google_calendar(alarmpi_content):
         Credentials, the obtained credential.
     """
     home_dir = os.path.expanduser('~')
-    print home_dir
     credential_dir = os.path.join(home_dir, '.credentials')
-    print credential_dir
     if not os.path.exists(credential_dir):
         os.makedirs(credential_dir)
     credential_path = os.path.join(credential_dir,
                                    'alarmpi-calendar-service.json')
-    print credential_path
     store = Storage(credential_path)
-    print store
     credentials = store.get()
     if not credentials or credentials.invalid:
         print 'Run google_calendar.py to set up credentials'
@@ -50,7 +46,6 @@ class google_calendar(alarmpi_content):
     credentials = self.get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
-    print('service loaded')
     now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
     eod = (datetime.datetime(
         year=datetime.datetime.utcnow().year,
