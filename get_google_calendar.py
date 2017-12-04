@@ -37,9 +37,9 @@ class google_calendar(alarmpi_content):
         os.makedirs(credential_dir)
     credential_path = os.path.join(credential_dir,
                                    'alarmpi-calendar-service.json')
-
+    print credential_path
     store = Storage(credential_path)
-
+    print store
     credentials = store.get()
     if not credentials or credentials.invalid:
         flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
@@ -57,7 +57,6 @@ class google_calendar(alarmpi_content):
     Creates a Google Calendar API service object and outputs a list of the next
     10 events on the user's calendar.
     """
-    print APPLICATION_NAME
     try:
       credentials = get_credentials()
     except Exception:
