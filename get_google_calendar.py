@@ -17,6 +17,10 @@ try:
 except ImportError:
     flags = None
 
+SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
+CLIENT_SECRET_FILE = 'client_secret.json'
+APPLICATION_NAME = 'alarmpi'
+
 class google_calendar(alarmpi_content):
   def get_credentials():
     """Gets valid user credentials from storage.
