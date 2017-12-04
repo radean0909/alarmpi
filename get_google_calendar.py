@@ -16,7 +16,7 @@ try:
     flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
 except ImportError:
     flags = None
-
+print flags
 class google_calendar(alarmpi_content):
   def get_credentials():
     """Gets valid user credentials from storage.
