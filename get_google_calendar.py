@@ -55,11 +55,11 @@ class calendar(alarmpi_content):
     try:
       credentials = get_credentials()
     except Exception:
-      message = 'Error authenticating'
+      print('Error authenticating')
 
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
-
+    print('service loaded')
     now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
     eod = (datetime.datetime(
         year=datetime.datetime.utcnow().year,
