@@ -69,7 +69,7 @@ if AlmEnv.get('main','readaloud') == str(1):
 
   if not played: # Nothing worked, so try festival
     print subprocess.call("echo " + wad + " | festival --tts ", shell=True)
-  
+
 else:
   print wad
 
