@@ -66,7 +66,7 @@ class google_calendar(alarmpi_content):
     if not events:
         message = 'Lucky you, nothing scheduled today.'
     else:
-        message = 'You have ' + len(events) + ' meetings scheduled today.'
+        message = 'You have ' + str(len(events)) + ' meetings scheduled today.'
     print(message)
     self.content = message
     for event in events:
