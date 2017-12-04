@@ -35,6 +35,7 @@ class google_calendar(alarmpi_content):
                                    'alarmpi-calendar-service.json')
 
     store = Storage(credential_path)
+    print('here', store)
     credentials = store.get()
     if not credentials or credentials.invalid:
         flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
@@ -56,7 +57,7 @@ class google_calendar(alarmpi_content):
       credentials = get_credentials()
     except Exception:
       print('Error authenticating')
-      print(Exception)
+      print(Exception.strerr)
 
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
