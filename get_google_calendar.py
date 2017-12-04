@@ -47,7 +47,7 @@ class google_calendar(alarmpi_content):
     Creates a Google Calendar API service object and outputs a list of the next
     10 events on the user's calendar.
     """
-    credentials = get_credentials()
+    credentials = self.get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     print('service loaded')
