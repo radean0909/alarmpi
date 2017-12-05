@@ -21,14 +21,14 @@ class npr(alarmpi_content):
       st = head + ' ' + media_url
       print(st)
       print subprocess.call (st, shell=True)
-      play = self.sconfig['player'] + ' ' + ramdrive + '*' + tail
+      play = self.sconfig['player'] + ' ' + ramdrive + 'npr' + tail
     except rss.bozo:
       news = 'Failed to reach NPR News'
       rval = False
 
     print subprocess.call (play, shell=True)
 
-    rmcmd = 'rm -f ' + ramdrive + '*.' + tail
+    rmcmd = 'rm -f ' + ramdrive + 'npr' + tail
     if self.debug:
       print 'cleaning up now'
       print rmcmd
