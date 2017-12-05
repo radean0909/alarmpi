@@ -37,7 +37,7 @@ class trygoogle(alarmpi_tts):
                                   '" -O ' +
                                   ramdrive])
 
-        st = head + sendthis + str(count).zfill(2) + 'google' + str(tail)
+        st = head + sendthis + 'google' + str(count).zfill(2) + str(tail)
         if self.debug:
           print(st)
         print subprocess.call (st, shell=True)
