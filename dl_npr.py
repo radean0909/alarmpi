@@ -12,6 +12,6 @@ def dl_npr(ramdrive='/mnt/ram/'):
       media_url = rss.entries[0].links[0].href
       head = 'wget -q -U Mozilla'
       st = head + ' -O ' + ramdrive + 'npr.mp3 ' + media_url
-      m = alsaaudio.Mixer(alsaaudio.mixers["PCM"]) # alsaaudio.mixers = ["PCM"] for me.
+      m = alsaaudio.Mixer(alsaaudio.mixers[0]) # alsaaudio.mixers = ["PCM"] for me.
       m.setvolume(80) # Or whatever
       print subprocess.call (st, shell=True)
