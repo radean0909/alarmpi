@@ -18,7 +18,7 @@ class npr(alarmpi_content):
       print(media_url)
       head = self.sconfig['head']
       tail = self.sconfig['tail']
-      st = head + ' ' + media_url + ' -O ' + ramdrive + 'npr.mp3'
+      st = head + ' -O ' + ramdrive + 'npr.mp3 ' + media_url
       print(st)
       print subprocess.call (st, shell=True)
       play = self.sconfig['player'] + ' ' + ramdrive + 'npr' + tail
