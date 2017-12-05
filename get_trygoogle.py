@@ -37,14 +37,14 @@ class trygoogle(alarmpi_tts):
                                   '" -O ' +
                                   ramdrive])
 
-        st = head + sendthis + str(count).zfill(2) + str(tail)
+        st = head + sendthis + str(count).zfill(2) + 'google' + str(tail)
         if self.debug:
           print(st)
         print subprocess.call (st, shell=True)
         count = count + 1
 
       # Play the mp3s returned
-      play = self.sconfig['player'] + ' ' + ramdrive + '*' + tail
+      play = self.sconfig['player'] + ' ' + ramdrive + 'google*' + tail
       if self.debug:
         print 'Calling "' + play + '"'
       print subprocess.call (play, shell=True)
