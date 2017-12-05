@@ -21,8 +21,8 @@ class greeting(alarmpi_content):
     # reads out good morning + my name
     gmt = 'Good ' + period + ', '
 
-    # reads date and time 
-    day = ' it\'s ' + now + '.  '
+    # reads date and time
+    day = '! It is ' + now + '.  '
 
     greeting = gmt + self.sconfig['name'] + day
 

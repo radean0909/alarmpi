@@ -54,7 +54,7 @@ class google_calendar(alarmpi_content):
     ) + datetime.timedelta(hours=24, microseconds=-1)).isoformat() + 'Z'
     print('Getting the upcoming 10 events')
     eventsResult = service.events().list(
-        calendarId='primary', timeMin=now, maxResults=10, singleEvents=True,
+        calendarId='primary', timeMin=now, timeMax=eod, maxResults=10, singleEvents=True,
         orderBy='startTime').execute()
     events = eventsResult.get('items', [])
 
