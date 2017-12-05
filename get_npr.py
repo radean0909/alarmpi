@@ -5,37 +5,30 @@ import feedparser
 from apcontent import alarmpi_content
 
 class npr(alarmpi_content):
-  def build(self):
+  def build(self, ramdrive='/mnt/ram/'):
     try:
       rss_url = 'http://www.npr.org/rss/podcast.php?id=' + str(self.sconfig['podcast'])
       rss = feedparser.parse(rss_url)
 
-      print rss['item']['enclosure']
+      media_url = rss.entries[0].links[0].href
 
-      #for entry in rss.entries[:4]:
-      #    print entry['title']
-      #    print entry['description']
-      #
-      #print rss.entries[0]['title']
-      #print rss.entries[0]['description']
-      #print rss.entries[1]['title']
-      #print rss.entries[1]['description']
-      #print rss.entries[2]['title']
-      #print rss.entries[2]['description']
-      #print rss.entries[3]['title']
-      #print rss.entries[3]['description']
-
-
+      head = self.sconfig['head']
+      tail = self.sconfig['tail']
+      st = head + media_url
+      print(st)
+      print subprocess.call (st, shell=True)
+      play = self.sconfig['player'] + ' ' + ramdrive + '*' + tail
     except rss.bozo:
-      news = 'Failed to reach BBC News'
+      news = 'Failed to reach NPR News'
 
     if self.debug:
       print news
 
     self.content = news
 
-if name = '__main__':
-  rss_url = 'http://www.npr.org/rss/podcast.php?id=' + str(self.sconfig['podcast'])
+if __name__ == '__main__':
+  rss_url = 'http://www.npr.org/rss/podcast.php?id=500005'
   rss = feedparser.parse(rss_url)
 
-  print rss['item']['enclosure']
+  print rss.entries[0].links[0].href
+
