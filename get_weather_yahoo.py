@@ -54,8 +54,8 @@ class weather_yahoo(alarmpi_content):
 
 
         if conditions != forecast_conditions:
-          conditions = conditions + ' becoming ' + forecast_conditions 
-        weather_yahoo = 'Weather for today is ' + str(conditions) + ' currently ' + str(current) + ' degrees with a low of ' + str(current_low) + ' and a high of ' + str(current_high) + '.  '
+          conditions = conditions + ' becoming ' + forecast_conditions
+        weather_yahoo = 'Weather for today is ' + str(conditions) + ' with a low of ' + str(current_low) + ' and a high of ' + str(current_high) + '. Currently it is ' + str(current) + ' degrees
 
     # Wind uses the Beaufort scale
         if self.sconfig['metric'] == str(1) and self.sconfig['wind'] == str(1):

@@ -10,7 +10,7 @@ class npr(alarmpi_content):
 
   def end(self, ramdrive='/mnt/ram/'):
 
-    play = self.sconfig['player'] + ' ' + ramdrive + 'npr' + tail
+    play = self.sconfig['player'] + ' ' + ramdrive + 'npr.mp3'
     print subprocess.call (play, shell=True)
     return rval
 
