@@ -6,7 +6,7 @@ from apcontent import alarmpi_content
 
 class npr(alarmpi_content):
   def begin(self, ramdrive='/mnt/ram/'):
-    play = self.sconfig['player'] + ' wakeup.mp3'
+    play = self.sconfig['player'] + ' `/alarmpi/wakeup.mp3'
     return True
 
   def end(self, ramdrive='/mnt/ram/'):

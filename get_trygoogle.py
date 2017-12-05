@@ -52,7 +52,7 @@ class trygoogle(alarmpi_tts):
       rval = False
 
     # Cleanup any mp3 files created in this directory.
-    rmcmd = 'cd /mnt/ram && rm -f !(npr.mp3|wakeup.mp3) && cd ~/alarmpi'
+    rmcmd = 'rm -f ' + ramdrive + '*.' + tail
     if self.debug:
       print 'cleaning up now'
       print rmcmd
