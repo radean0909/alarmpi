@@ -5,14 +5,14 @@ import feedparser
 from apcontent import alarmpi_content
 
 class npr(alarmpi_content):
-  def begin(self):
-    pass
+  def begin(self, ramdrive='/mnt/ram/'):
+    play = self.sconfig['player'] + ' wakeup.mp3'
+    return True
 
   def end(self, ramdrive='/mnt/ram/'):
-
     play = self.sconfig['player'] + ' ' + ramdrive + 'npr.mp3'
     print subprocess.call (play, shell=True)
-    return rval
+    return True
 
 if __name__ == '__main__':
   rss_url = 'http://www.npr.org/rss/podcast.php?id=500005'
