@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+import subprocess
 import feedparser
 
 from apcontent import alarmpi_content
@@ -11,7 +11,7 @@ class npr(alarmpi_content):
       rss = feedparser.parse(rss_url)
 
       media_url = rss.entries[0].links[0].href
-
+      print(media_url)
       head = self.sconfig['head']
       tail = self.sconfig['tail']
       st = head + media_url
