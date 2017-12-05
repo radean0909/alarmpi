@@ -10,7 +10,7 @@ class npr(alarmpi_content):
       rss_url = 'http://www.npr.org/rss/podcast.php?id=' + str(self.sconfig['podcast'])
       rss = feedparser.parse(rss_url)
 
-      print rss['item']['enclosure'].url
+      print rss['item']['enclosure']
 
       #for entry in rss.entries[:4]:
       #    print entry['title']
@@ -33,3 +33,9 @@ class npr(alarmpi_content):
       print news
 
     self.content = news
+
+if name = '__main__':
+  rss_url = 'http://www.npr.org/rss/podcast.php?id=' + str(self.sconfig['podcast'])
+  rss = feedparser.parse(rss_url)
+
+  print rss['item']['enclosure']
