@@ -5,7 +5,10 @@ import feedparser
 from apcontent import alarmpi_content
 
 class npr(alarmpi_content):
-  def build(self, ramdrive='/mnt/ram/'):
+  def begin(self):
+    pass
+
+  def end(self, ramdrive='/mnt/ram/'):
     try:
       rss_url = 'http://www.npr.org/rss/podcast.php?id=' + str(self.sconfig['podcast'])
       rss = feedparser.parse(rss_url)
