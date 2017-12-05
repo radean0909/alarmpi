@@ -6,7 +6,6 @@ from apcontent import alarmpi_content
 
 class npr(alarmpi_content):
   def begin(self, ramdrive='/mnt/ram/'):
-    print subprocess.call('amixer set \'PCM\' 80%')
     play = self.sconfig['player'] + ' ~/alarmpi/wakeup.mp3'
     print subprocess.call (play, shell=True)
     return True
