@@ -9,6 +9,7 @@ class npr(alarmpi_content):
     try:
       rss_url = 'http://www.npr.org/rss/podcast.php?id=' + str(self.sconfig['podcast'])
       rss = feedparser.parse(rss_url)
+      rval = True
 
       media_url = rss.entries[0].links[0].href
       print(media_url)
@@ -20,11 +21,16 @@ class npr(alarmpi_content):
       play = self.sconfig['player'] + ' ' + ramdrive + '*' + tail
     except rss.bozo:
       news = 'Failed to reach NPR News'
+      rval = False
 
+    print subprocess.call (play, shell=True)
+
+    rmcmd = 'rm -f ' + ramdrive + '*.' + tail
     if self.debug:
-      print news
-
-    self.content = news
+      print 'cleaning up now'
+      print rmcmd
+    print subprocess.call (rmcmd, shell=True)
+    return rval
 
 if __name__ == '__main__':
   rss_url = 'http://www.npr.org/rss/podcast.php?id=500005'
