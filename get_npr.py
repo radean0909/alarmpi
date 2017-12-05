@@ -7,10 +7,10 @@ from apcontent import alarmpi_content
 
 class npr(alarmpi_content):
   def begin(self, ramdrive='/mnt/ram/'):
-    m = alsaaudio.Mixer(alsaaudio.mixers[0]) # alsaaudio.mixers = ["PCM"] for me.
+    m = alsaaudio.Mixer("PCM") # alsaaudio.mixers = ["PCM"] for me.
     print alsaaudio.mixers
     print m.getvolume()
-    m.setvolume(80, 'MIXER_CHANNEL_ALL') # Or whatever
+    m.setvolume(80) # Or whatever
     print m.getvolume()
     play = self.sconfig['player'] + ' ~/alarmpi/wakeup.mp3'
     print subprocess.call (play, shell=True)
