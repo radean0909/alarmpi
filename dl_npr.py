@@ -12,3 +12,6 @@ def dl_npr(ramdrive='/mnt/ram/'):
       head = 'wget -q -U Mozilla'
       st = head + ' -O ' + ramdrive + 'npr.mp3 ' + media_url
       print subprocess.call (st, shell=True)
+
+if __name__ == '__main__':
+      dl_npr()
